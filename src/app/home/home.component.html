@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="list-group" style=" text-align: center ; ">
+      <li class="list-group-item" [ngClass]="{active:menuIndex==1}" (click)="menuClicked(1)">
+        用户管理</li>
+      <li class="list-group-item" [ngClass]="{active:menuIndex==2}" (click)="menuClicked(2)">
+        成绩管理</li>
+      <li class="list-group-item" [ngClass]="{active:menuIndex==3}" (click)="menuClicked(3)">
+        退出登录</li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>

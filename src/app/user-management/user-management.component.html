@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="container" style="margin-top: 60px">
+      <!-- <h2>堆叠表单</h2> -->
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+        <h3>学生添加</h3>
+        <div *ngIf="!myForm.valid" class="alert alert-danger">
+          <strong>错误！</strong>表单无效
+        </div>
+
+        <div class="form-group">
+          <label for="usernameInput">姓名</label>
+          <input type="text" class="form-control" id="usernameInput" placeholder="请输入姓名" [formControl]="username">
+        </div>
+
+        <div class="form-group">
+          <label for="genderInput">性别</label>
+          <div *ngIf="!myForm.valid" class="alert alert-danger">
+            <strong>错误！</strong>性别必填
+          </div>
+        </div>
+
+        <input type="text" id="genderInput" class="form-control" [ngClass]="{'is-invalid':gender.hasError('required')}"
+          placeholder="请输入性别" [formControl]="gender">
+
+        <div class="form-group">
+          <label for="WebInput">Web成绩</label>
+          <input type="text" class="form-control" id="WebInput" placeholder="请输入Web成绩" [formControl]="Web">
+        </div>
+
+        <div class="form-group">
+          <label for="embededInput">embeded成绩</label>
+          <input type="text" class="form-control" id="embededInput" placeholder="请输入embeded成绩" [formControl]="embeded">
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox"> 记住姓名&性别&成绩
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">增加</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>

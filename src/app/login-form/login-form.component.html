@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="container" style="margin-top: 60px">
+      <!-- <h2>堆叠表单</h2> -->
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+        <h3>登录</h3>
+        <div *ngIf="!myForm.valid" class="alert alert-danger">
+          <strong>错误！</strong>表单无效
+        </div>
+
+        <div class="form-group">
+          <label for="usernameInput">用户名</label>
+          <input type="text" class="form-control" id="usernameInput" placeholder="请输入用户名" [formControl]="username">
+        </div>
+
+        <div class="form-group">
+          <label for="passwordInput">密码</label>
+          <div *ngIf="!myForm.valid" class="alert alert-danger">
+            <strong>错误！</strong>密码必填
+          </div>
+          <!-- <input type="password" class="form-control" id="password" placeholder="请输入密码"> -->
+        </div>
+
+        <input type="password" id="passwordInput" class="form-control"
+          [ngClass]="{'is-invalid':password.hasError('required')}" placeholder="请输入密码" [formControl]="password">
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox"> 记住用户名&密码
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">登录</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>

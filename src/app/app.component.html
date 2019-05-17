@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" [routerLink]="['login']">
+    <img src="https://static.runoob.com/images/mix/bird.jpg" alt="logo" style="width:40px;">
+  </a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['login']">登录</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['home']">主页</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['about']">关于</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" style="position:absolute;color:white;right:100px"
+        *ngIf=this.auth.isLoggedIn()>你好,{{auth.Username}}</a>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" (click)="loggout()" *ngIf=this.auth.isLoggedIn()
+        style="position:absolute;color:blue;right:20px">退出登录</button>
+    </li>
+  </ul>
+</nav>
+<div class="row">
+  <div class=""></div>
+  <div class="col">
+    <router-outlet></router-outlet>
+  </div>
+  <div class=""></div>
+</div>
